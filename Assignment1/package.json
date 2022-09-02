@@ -1,0 +1,32 @@
+{
+  "name": "assignment1",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Cody Duong <cody.qd@gmail.com> ((https://github.com/codyduong)",
+  "license": " ",
+  "private": true,
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "build": "rm -r -f dist && tsc && yarn nexe-only",
+    "nexe-only": "yarn linux86; yarn windows64; yarn windows86",
+    "linux86": "nexe -i ./dist/index.js -t linux-x86-12.16.2 -o dist/Assignment1-x86",
+    "windows64": "nexe -i ./dist/index.js -t windows-x64-14.5.0 -o dist/Assignment1-x64.exe",
+    "windows86": "nexe -i ./dist/index.js -t windows-x86-14.9.0 -o dist/Assignment1-x86.exe"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.14",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.0.1",
+    "eslint-config-codyduong": "https://github.com/codyduong/eslint-config-codyduong.git#semver:v1.0.1",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nexe": "^4.0.0-rc.1",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.9.1",
+    "typescript": "*"
+  }
+}
