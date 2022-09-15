@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "assignment2"
+version = "1.0.0"
+description = ""
+authors = ["Cody Duong <cody.qd@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+black = "^22.8.0"
+docutils = "^0.19"
+esbonio = "^0.14.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+main = "src:main"
