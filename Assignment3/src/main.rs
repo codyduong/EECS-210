@@ -216,7 +216,8 @@ fn problem4() {
     } else {
         println!(
             "Disproven by point: ({0}, {1}) ≠ ({2}, {3})",
-            // convert back to original ordered pairs (+1 is necessary since zero-indexed)
+            // convert back to original ordered pairs (+1 because I did buffoonery elsewhere)
+            // > there's two hard problems in computer science: we only have one joke and it's not funny.
             symmetric_antiproof.0 as i8 - offset_value + 1,
             symmetric_antiproof.1 as i8 - offset_value + 1,
             symmetric_antiproof.1 as i8 - offset_value + 1,
