@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "duong-3050266-assignment4"
+version = "1.0.0"
+description = ""
+authors = ["Cody Duong <cody.qd@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+black = "^22.8.0"
+coverage = "^6.4.4"
+docutils = "^0.19"
+esbonio = "^0.14.1"
+pyright = "^1.1.273"
+
+[tool.pyright]
+strictListInference = "true"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
