@@ -15,7 +15,7 @@ esbonio = "^0.14.1"
 pyright = "^1.1.273"
 
 [tool.pyright]
-strictListInference = "true"
+strictListInference = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

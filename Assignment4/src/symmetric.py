@@ -25,6 +25,14 @@ class SymmetricReturn(TypedDict):
 def symmetric(
     R: List[Tuple[Any, Any]] | Set[Tuple[Any, Any]], A: List[Any] | Set[Any]
 ) -> SymmetricReturn:
+    """
+    Takes in a set of ordered pairs in the format List[Tuple[Any, Any]] and returns a SymmetricReturn
+
+    :param R: List[Tuple[Any, Any]]
+    :param A: Set of elements to check for
+    :returns SymmetricReturn:
+    """
+
     a_set: set[Any] = set(A)
     r_set: set[Tuple[Any, Any]] = set((x, y) for x, y in R if x in a_set and y in a_set)
 

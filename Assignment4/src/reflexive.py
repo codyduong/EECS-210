@@ -25,9 +25,9 @@ def reflexive(
     R: List[Tuple[Any, Any]] | Set[Tuple[Any, Any]], A: List[Any] | Set[Any]
 ) -> ReflexiveReturn:
     """
-    Takes in a set of ordered pairs in the format List[Tuple[int, int]] and returns a ReflexiveReturn
+    Takes in a set of ordered pairs in the format List[Tuple[Any, Any]] and returns a ReflexiveReturn
 
-    :param R: List[Tuple[int, int]] ie. homogenuous pairs
+    :param R: List[Tuple[Any, Any]]
     :param A: Set of elements to check for
     :returns ReflexiveReturn:
     """

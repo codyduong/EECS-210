@@ -21,7 +21,9 @@ class TestTransitiveFunction(unittest.TestCase):
         self.tests: list[
             tuple[
                 tuple[
-                    set[tuple[Any, Any]] | list[tuple[Any, Any]], set[Any] | list[Any]
+                    set[tuple[Any, Any]] | list[tuple[Any, Any]],
+                    set[Any] | list[Any],
+                    bool,
                 ],
                 TransitiveReturn,
             ]
@@ -31,6 +33,19 @@ class TestTransitiveFunction(unittest.TestCase):
                 (
                     {("a", "b"), ("d", "d"), ("b", "c"), ("a", "c")},
                     {"a", "b", "c", "d"},
+                    True,
+                ),
+                {
+                    "r": {("a", "b"), ("d", "d"), ("b", "c"), ("a", "c")},
+                    "transitive": True,
+                    "r_star": None,
+                },
+            ),
+            (
+                (
+                    {("a", "b"), ("d", "d"), ("b", "c"), ("a", "c")},
+                    {"a", "b", "c", "d"},
+                    False,
                 ),
                 {
                     "r": {("a", "b"), ("d", "d"), ("b", "c"), ("a", "c")},
@@ -43,6 +58,7 @@ class TestTransitiveFunction(unittest.TestCase):
                 (
                     {(1, 1), (1, 3), (2, 2), (3, 1), (3, 2)},
                     {1, 2, 3},
+                    True,
                 ),
                 {
                     "r": {(1, 1), (1, 3), (2, 2), (3, 1), (3, 2)},
@@ -51,10 +67,28 @@ class TestTransitiveFunction(unittest.TestCase):
                 },
             ),
             (
+                ({(1, 1), (1, 3), (2, 2), (3, 1), (3, 2)}, {1, 2, 3}, False),
+                {
+                    "r": {(1, 1), (1, 3), (2, 2), (3, 1), (3, 2)},
+                    "transitive": False,
+                    "r_star": {(1, 1), (1, 3), (2, 2), (3, 1), (3, 2), (3, 3), (1, 2)},
+                },
+            ),
+            # other
+            (
                 (
                     {(1, 2), (3, 2), (2, 3)},
                     {1, 2, 3},
+                    True,
                 ),
+                {
+                    "r": {(1, 2), (3, 2), (2, 3)},
+                    "transitive": False,
+                    "r_star": {(1, 2), (3, 2), (2, 3), (1, 3), (2, 2), (3, 3)},
+                },
+            ),
+            (
+                ({(1, 2), (3, 2), (2, 3)}, {1, 2, 3}, False),
                 {
                     "r": {(1, 2), (3, 2), (2, 3)},
                     "transitive": False,
