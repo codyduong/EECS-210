@@ -26,7 +26,8 @@ class TestReflexiveFunction(unittest.TestCase):
         self.tests: list[
             tuple[
                 tuple[
-                    set[tuple[Any, Any]] | list[tuple[Any, Any]], set[Any] | list[Any]
+                    set[tuple[Any, Any]] | list[tuple[Any, Any]],
+                    set[Any] | list[Any] | None,
                 ],
                 ReflexiveReturn,
             ]
@@ -34,6 +35,14 @@ class TestReflexiveFunction(unittest.TestCase):
             # 1d
             (
                 ({(1, 1), (4, 4), (2, 2), (3, 3)}, {1, 2, 3, 4}),
+                {
+                    "r": {(1, 1), (4, 4), (2, 2), (3, 3)},
+                    "reflexive": True,
+                    "r_star": None,
+                },
+            ),
+            (
+                ({(1, 1), (4, 4), (2, 2), (3, 3)}, None),
                 {
                     "r": {(1, 1), (4, 4), (2, 2), (3, 3)},
                     "reflexive": True,

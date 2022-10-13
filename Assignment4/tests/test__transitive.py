@@ -3,7 +3,7 @@ Author: Cody Duong <cody.qd@gmail.com> (https://github.com/codyduong)
 KUID: 3050266
 Date: 2022-10-13
 Lab: Assignment 4
-Purpose: Symmetry Tests
+Purpose: Transitive Tests
 """
 
 

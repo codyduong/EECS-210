@@ -17,23 +17,26 @@ class SymmetricReturn(TypedDict):
     R* if is is not symmetric
     """
 
-    r: None | Set[Tuple[Any, Any]]
+    r: Set[Tuple[Any, Any]]
     symmetric: bool
     r_star: None | Set[Tuple[Any, Any]]
 
 
 def symmetric(
-    R: List[Tuple[Any, Any]] | Set[Tuple[Any, Any]], A: List[Any] | Set[Any]
+    R: List[Tuple[Any, Any]] | Set[Tuple[Any, Any]],
+    s: List[Any] | Set[Any] | None = None,
 ) -> SymmetricReturn:
     """
     Takes in a set of ordered pairs in the format List[Tuple[Any, Any]] and returns a SymmetricReturn
 
-    :param R: List[Tuple[Any, Any]]
-    :param A: Set of elements to check for
+    :param R: Relation of List[Tuple[Any, Any]]
+    :param s: Set of elements to check for
     :returns SymmetricReturn:
     """
+    if s is None:
+        s = set(x for x in R) | set(y for y in R)
 
-    a_set: set[Any] = set(A)
+    a_set: set[Any] = set(s)
     r_set: set[Tuple[Any, Any]] = set((x, y) for x, y in R if x in a_set and y in a_set)
 
     xy_set: set[tuple[Any, Any]] = r_set

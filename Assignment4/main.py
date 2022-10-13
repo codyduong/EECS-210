@@ -7,4 +7,4 @@ Purpose: Entry point into assigment 4
 """
 
 if __name__ == "__main__":
-    pass
+    from src.main import *

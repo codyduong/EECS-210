@@ -13,32 +13,34 @@ from typing import Any, Dict, List, Set, Tuple, TypedDict
 class TransitiveReturn(TypedDict):
     """
     R = {...}
-    R is (symmetric | not symmetric)
-    R* if is is not symmetric
+    R is (symmetric | not transitive)
+    R* if is is not transitive
     """
 
-    r: None | Set[Tuple[Any, Any]]
+    r: Set[Tuple[Any, Any]]
     transitive: bool
     r_star: None | Set[Tuple[Any, Any]]
 
 
 def transitive(
     R: List[Tuple[Any, Any]] | Set[Tuple[Any, Any]],
-    A: List[Any] | Set[Any],
+    s: List[Any] | Set[Any] | None = None,
     use_warshall_closure: bool = True,
 ) -> TransitiveReturn:
     """
     Takes in a set of ordered pairs in the format List[Tuple[Any, Any]] and returns a TransitiveReturn
 
-    :param R: List[Tuple[Any, Any]]
-    :param A: Set of elements to check for
+    :param R: Relation of List[Tuple[Any, Any]]
+    :param s: Set of elements to check for
     :param use_warshall_closure: Defaults to True. This algorithim will
         blow up on reserved values that cannot be put in a dictionary index.
         Will also incorrectly coerce to integer (if possible)... I'm sure I could fix this... w/e...
     :returns SymmetricReturn:
     """
+    if s is None:
+        s = set(x for x in R) | set(y for y in R)
 
-    a_set: set[Any] = set(A)
+    a_set: set[Any] = set(s)
     r_set: set[Tuple[Any, Any]] = set((x, y) for x, y in R if x in a_set and y in a_set)
 
     if use_warshall_closure:
@@ -47,8 +49,8 @@ def transitive(
 
         it is also extraordinarily unergo for pyright... w/e
 
-        * matrixes have stupid restrictions for a dynamic language
-        * dictionaries have stupid restrictions for a dynamic language
+        * matrixes have stupid restrictions for a dynamic duck language
+        * dictionaries have stupid restrictions for a dynamic duck language
 
         so this is really ugly...
         """
