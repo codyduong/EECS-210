@@ -1,0 +1,110 @@
+{
+  "Problem 1": {
+    "args": [
+      ["a", "b", "c", "d"],
+      ["v", "w", "x", "y", "z"],
+      [["a", "z"], ["b", "y"], ["c", "x"], ["d", "w"]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": true,
+      "surjective": false
+    }
+  },
+  "Problem 2": {
+    "args": [
+      ["a", "b", "c", "d"],
+      ["x", "y", "z"],
+      [["a", "z"], ["b", "y"], ["c", "x"], ["d", "z"]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": false,
+      "surjective": true
+    }
+  },
+  "Problem 3": {
+    "args": [
+      ["a", "b", "c", "d"],
+      ["w", "x", "y", "z"],
+      [["a", "z"], ["b", "y"], ["c", "x"], ["d", "w"]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": true,
+      "surjective": true
+    }
+  },
+  "Problem 4": {
+    "args": [
+      ["a", "b", "c", "d"],
+      [1, 2, 3, 4, 5],
+      [["a", 4], ["b", 5], ["c", 1], ["d", 3]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": true,
+      "surjective": false
+    }
+  },
+  "Problem 5": {
+    "args": [
+      ["a", "b", "c"],
+      [1, 2, 3, 4],
+      [["a", 3], ["b", 4], ["c", 1]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": true,
+      "surjective": false
+    }
+  },
+  "Problem 6": {
+    "args": [
+      ["a", "b", "c", "d"],
+      [1, 2, 3],
+      [["a", 2], ["b", 1], ["c", 3], ["d", 2]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": false,
+      "surjective": true
+    }
+  },
+  "Problem 7": {
+    "args": [
+      ["a", "b", "c", "d"],
+      [1, 2, 3, 4],
+      [["a", 4], ["b", 1], ["c", 3], ["d", 2]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": true,
+      "surjective": true
+    }
+  },
+  "Problem 8": {
+    "args": [
+      ["a", "b", "c", "d"],
+      [1, 2, 3, 4],
+      [["a", 2], ["b", 1], ["c", 2], ["d", 3]]
+    ],
+    "answer": {
+      "is_function": true,
+      "injective": false,
+      "surjective": false
+    }
+  },
+  "Problem 9": {
+    "args": [
+      ["a", "b", "c"],
+      [1, 2, 3, 4],
+      [["a", 2], ["b", 1], ["a", 4], ["c", 3]]
+    ],
+    "answer": {
+      "is_function": false,
+      "injective": null,
+      "surjective": null
+    }
+  }
+}
